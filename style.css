@@ -64,12 +64,28 @@ header {
 /*}
 
 /* Navigation menu styles */
+nav {
+    width: 100%; /* Ensures the navigation spans the full width of the viewport */
+    /* box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional: adds shadow for better visibility */
+    transition: top 0.3s; /* Smooth transition for moving navigation */
+}
+
+.fixed-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    background-color: #333; /* Ensuring visibility */
+}
+
 .menu ul {
     list-style-type: none;
     background: #333;
     text-align: center;
     margin: 0;
     padding: 0;
+    overflow: hidden; /* Clears floated links */
+    text-align: center; /* Center aligns the navigation links */
 }
 
 .menu ul li {
@@ -124,9 +140,24 @@ header {
     cursor: pointer; /* Mudando o cursor para uma mão ao passar o mouse */
 }
 
+/* Button style in style.css */
+button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
+
 /* Main content styles */
 main {
     padding: 20px;
+    padding-bottom: 250px;
 }
 
 section {
@@ -140,6 +171,8 @@ section {
     align-items: center; /* Center the content */
     text-align: justify; /* Justify the text */
     padding: 0 20px; /* Add padding to give some space on the sides */
+    padding-top: 70px; /* Adjust based on your fixed header height */
+    margin-top: -70px; /* Negative margin to offset the padding for anchor link positioning */
 }
 
 #about h2 {
@@ -158,6 +191,10 @@ section {
     align-items: center; /* Center the content */
     text-align: center; /* Justify the text */
     padding: 0 20px; /* Add padding to give some space on the sides */
+    padding-top: 100px;
+    margin-top: -100px;
+    padding-bottom: 50px; */
+    min-height: 100vh;
 }
 
 .contact-methods {
@@ -202,10 +239,15 @@ footer {
     }
 
     .name, .me {
-        font-size: 18px;
+        font-size: 18px;  /* Adjusting for smaller screens */
         max-width: 90%;
         margin: auto 32px;
         padding: 0 12px;
+    }
+
+    #about, #research, #publications, #contact {
+        padding-top: 60px; /* Adjust for smaller navigation on mobile */
+        margin-top: -60px;
     }
 
     p {
