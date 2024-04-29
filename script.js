@@ -1,12 +1,36 @@
+function navigateTo(url, newTab = false) {
+    // Check if URL includes a hash, indicating internal navigation on the current page
+    if (url.includes('#') && window.location.pathname === url.split('#')[0]) {
+        const sectionId = url.substring(url.indexOf('#') + 1);
+        const section = document.querySelector('#' + sectionId);
+        
+        if (section) {
+            // If the section exists, scroll to it
+            window.scrollTo({
+                top: section.offsetTop - document.querySelector('nav').offsetHeight,
+                behavior: 'smooth'
+            });
+        }
+    } else {
+        // For external links or different pages, check if it should open in a new tab
+        if (newTab) {
+            window.open(url, '_blank');
+        } else {
+            window.location.href = url;
+        }
+    }
+}
+
+
 document.querySelectorAll('nav a').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        const targetId = this.getAttribute('href');
-        const target = document.querySelector(targetId);
+        const targetUrl = this.getAttribute('href');
+        navigateTo(targetUrl);
         
-        if (target) {
+        if (targetUrl) {
             const headerOffset = document.querySelector('nav').offsetHeight;
-            let elementPosition = target.getBoundingClientRect().top + window.scrollY;
+            let elementPosition = targetUrl.getBoundingClientRect().top + window.scrollY;
             let offsetPosition = elementPosition - headerOffset;
 
             // Check if the element position is beyond the maximum scrollable area of the document
@@ -23,6 +47,7 @@ document.querySelectorAll('nav a').forEach(anchor => {
     });
 });
 
+
 // Ensure the nav bar fixes itself after scrolling past the header
 window.addEventListener('scroll', () => {
     const nav = document.querySelector('nav');
@@ -35,21 +60,8 @@ window.addEventListener('scroll', () => {
     }
 });
 
-function navigateTo(url) {
-    // Checking if the URL is on the same page with a hash
-    if (url.includes('#') && window.location.pathname === url.split('#')[0]) {
-        const section = document.querySelector(url.substring(url.indexOf('#')));
-        if (section) {
-            window.scrollTo({
-                top: section.offsetTop - document.querySelector('nav').offsetHeight,
-                behavior: 'smooth'
-            });
-        }
-    } else {
-        // For different pages or when no hash is involved
-        window.location.href = url;
-    }
-}
+
+
 
 document.addEventListener('DOMContentLoaded', function() {
     const pdfButtons = document.querySelectorAll('.pdf-view');
