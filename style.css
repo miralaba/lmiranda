@@ -104,6 +104,10 @@ nav {
     color: black;
 }
 
+.research ul li{
+    list-style-type: none;
+}
+
 .publications ul li{
     list-style-type: none;
 }
