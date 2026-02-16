@@ -108,6 +108,31 @@ nav {
     list-style-type: none;
 }
 
+/* General styles for research images */
+.research-image {
+    max-width: 150px; /* Adjust the size of the image */
+    height: auto; /* Maintain aspect ratio */
+    margin: 10px; /* Add spacing around the image */
+    border-radius: 10px; /* Optional: rounded corners */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Optional: shadow for emphasis */
+}
+
+/* Specific positions for each image */
+.research-image.top-right {
+    float: right; /* Aligns the image to the top-right of the paragraph */
+    margin-left: 15px;
+}
+
+.research-image.middle {
+    display: block;
+    margin: 20px auto; /* Center the image horizontally */
+}
+
+.research-image.bottom-left {
+    float: left; /* Aligns the image to the bottom-left of the paragraph */
+    margin-right: 15px;
+}
+
 .publications ul li{
     list-style-type: none;
 }
