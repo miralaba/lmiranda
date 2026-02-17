@@ -85,26 +85,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
     images.forEach(img => {
 
-        img.style.cursor = "pointer";
+    img.style.cursor = "pointer";
 
-        img.addEventListener('click', function() {
-            lightbox.style.display = 'block';
-            lightboxImg.src = this.src;
+    img.addEventListener('click', function() {
+        lightbox.style.display = 'block';
+        lightboxImg.src = this.src;
+        caption.textContent = this.alt || "";
 
-            // Use alt text as caption
-            caption.textContent = this.alt || "";
-        });
-
+        document.body.style.overflow = "hidden";  // 🔥 Prevent background scroll
     });
 
-    closeBtn.addEventListener('click', function() {
+});
+
+closeBtn.addEventListener('click', function() {
+    lightbox.style.display = 'none';
+    document.body.style.overflow = "auto";
+});
+
+lightbox.addEventListener('click', function(e) {
+    if (e.target === lightbox) {
         lightbox.style.display = 'none';
-    });
-
-    lightbox.addEventListener('click', function(e) {
-        if (e.target === lightbox) {
-            lightbox.style.display = 'none';
-        }
-    });
+        document.body.style.overflow = "auto";
+    }
+});
 
 });
