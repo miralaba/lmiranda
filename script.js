@@ -73,3 +73,38 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    const images = document.querySelectorAll('main img'); 
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const caption = document.getElementById('lightbox-caption');
+    const closeBtn = document.querySelector('.close-lightbox');
+
+    images.forEach(img => {
+
+        img.style.cursor = "pointer";
+
+        img.addEventListener('click', function() {
+            lightbox.style.display = 'block';
+            lightboxImg.src = this.src;
+
+            // Use alt text as caption
+            caption.textContent = this.alt || "";
+        });
+
+    });
+
+    closeBtn.addEventListener('click', function() {
+        lightbox.style.display = 'none';
+    });
+
+    lightbox.addEventListener('click', function(e) {
+        if (e.target === lightbox) {
+            lightbox.style.display = 'none';
+        }
+    });
+
+});

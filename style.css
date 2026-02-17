@@ -138,6 +138,60 @@ nav {
 /*     margin-right: 15px;
 /* }
 
+/* Make images look clickable */
+.clickable-image {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.clickable-image:hover {
+    transform: scale(1.05);
+}
+
+/* Lightbox background overlay */
+.lightbox {
+    display: none; 
+    position: fixed;
+    z-index: 2000;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+}
+
+/* Enlarged image */
+.lightbox-content {
+    margin: auto;
+    display: block;
+    max-width: 85%;
+    max-height: 85vh;
+    border-radius: 8px;
+}
+
+/* Close button */
+.close-lightbox {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Lightbox caption */
+.lightbox-caption {
+    margin-top: 15px;
+    text-align: center;
+    color: #f1f1f1;
+    font-size: 16px;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .publications ul li{
     list-style-type: none;
 }

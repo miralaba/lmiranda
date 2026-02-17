@@ -36,7 +36,7 @@
         <!-- About Me Section -->
         <section id="about">
             <h2>About Me</h2>
-            <img src="./images/MirandaLphoto.jpg" alt="Leonardo de Sousa Miranda"  class="profile-photo">
+            <img src="./images/MirandaLphoto.jpg" alt="Leonardo de Sousa Miranda"  class="profile-photo clickable-image">
             <!-- Add your biography and other details here -->
             <p>I am an biodiversity data scientist who spends a lot of time thinking about tropical ecosystems: how they respond to global changes and how we can make better decisions about their future. Somewhere between field notebooks in the Amazon and lines of code in R, I realised that understanding biodiversity is not only about describing species, but about anticipating change. And acting on it.</p>
             
@@ -55,27 +55,27 @@
             <h2>Profile and Portfolio</h2>
             <!-- Details about your research -->
             <p>
-                <img src="./images/research_image1.png" alt="Research Image 1" class="research-image top-right">
+                <img src="./images/research_image1.png" alt="Research Image 1" class="research-image top-right clickable-image">
                 My research trajectory began during my undergraduate scientific initiation projects, where I worked on population genetics of Amazonian birds. I estimated nucleotide and haplotypic diversity, gene flow patterns, and [naively attempted to calculate] effective population sizes, using coalescent-based approaches to understand how landscape structure shapes genetic variation.
             </p>
 
             <p>
-                <img src="./images/research_image2.png" alt="Research Image 2" class="research-image top-left">
+                <img src="./images/research_image2.png" alt="Research Image 2" class="research-image top-left clickable-image">
                 During my Master’s degree, I moved into integrative taxonomy, combining molecular phylogenies, morphometric analyses, vocal trait assessment, and multivariate statistics to delimit species boundaries. This work led to the description of a new Amazonian bird species, Myrmotherula oreni (Bamboo Antwren), published in a special volume of the Handbook of the Birds of the World. This experience has strengthened my interest in how evolutionary history and ecological specialisation intersect.
             </p>
 
             <p>
-                <img src="./images/research_image3.png" alt="Research Image 3" class="research-image top-right">
+                <img src="./images/research_image3.png" alt="Research Image 3" class="research-image top-right clickable-image">
                 My PhD expanded this perspective to macroevolution and biogeography. I reconstructed dated phylogenies using molecular clocks, conducted ancestral area reconstructions, and coupled species distribution models with palaeoclimatic hindcasts to examine how past climate oscillations influenced diversification across the Amazon. It was here that the central role of climate in shaping biodiversity patterns became undeniable.
             </p>
 
             <p>
-                <img src="./images/research_image4.png" alt="Research Image 3" class="research-image top-left">
+                <img src="./images/research_image4.png" alt="Research Image 3" class="research-image top-left clickable-image">
                 In my postdoctoral positions, I shifted towards forecasting future change. I used species distribution models to assess climate-driven range shifts in birds, bees, and other taxa, some of these works were later cited by the UN FAO. I also developed spatial multi-criteria frameworks to prioritise conservation and restoration areas, integrating ecological data with strategic planning tools.
             </p>
 
             <p>
-                <img src="./images/research_image5.png" alt="Research Image 3" class="research-image top-right">
+                <img src="./images/research_image5.png" alt="Research Image 3" class="research-image top-right clickable-image">
                 More recently, as part of the Rede Amazônia Sustentável, I have led spatially explicit modelling that integrates satellite data, long-term field observations and counterfactual scenarios to quantify the cost-effectiveness of conservation interventions. These works contributed to receiving the Ramboll Foundation Award on Biodiversity and to securing major restoration funding through the GCBC–DEFRA programme. I now collaborate closely with the Environment Secretariat of Pará to measure the recovery of biodiversity and ecosystem functions in naturally regenerating secondary forests, translating science into operational guidance for restoration at scale.
             </p>
             
@@ -191,5 +191,13 @@
 
     <!-- Link to the external JavaScript file -->
     <script src="script.js"></script>
+
+    <!-- Lightbox Overlay -->
+<div id="lightbox" class="lightbox">
+    <span class="close-lightbox">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
+    <div id="lightbox-caption" class="lightbox-caption"></div>
+</div>
+
 </body>
 </html>
