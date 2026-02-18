@@ -1,112 +1,146 @@
+/* =========================
+   1) Navigation helper
+   - Internal hash navigation (smooth scroll with nav offset)
+   - External links / other pages (same tab or new tab)
+   ========================= */
+
 function navigateTo(url, newTab = false) {
-    // Check if URL includes a hash, indicating internal navigation on the current page
-    if (url.includes('#') && window.location.pathname === url.split('#')[0]) {
-        const sectionId = url.substring(url.indexOf('#') + 1);
-        const section = document.querySelector('#' + sectionId);
-        
+    // Internal navigation: "#section"
+    if (url.startsWith('#')) {
+        const sectionId = url.substring(1);
+        const section = document.getElementById(sectionId);
+
         if (section) {
-            // If the section exists, scroll to it
+            const nav = document.querySelector('nav');
+            const headerOffset = nav ? nav.offsetHeight : 0;
+
             window.scrollTo({
-                top: section.offsetTop - document.querySelector('nav').offsetHeight,
+                top: section.offsetTop - headerOffset,
                 behavior: 'smooth'
             });
         }
+        return;
+    }
+
+    // Navigation to other pages with hashes (e.g., "index.html#about")
+    // or plain external URLs
+    if (newTab) {
+        window.open(url, '_blank');
     } else {
-        // For external links or different pages, check if it should open in a new tab
-        if (newTab) {
-            window.open(url, '_blank');
-        } else {
-            window.location.href = url;
-        }
+        window.location.href = url;
     }
 }
 
 
-document.querySelectorAll('nav a').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetUrl = this.getAttribute('href');
-        navigateTo(targetUrl);
-        
-        if (targetUrl) {
-            const headerOffset = document.querySelector('nav').offsetHeight;
-            let elementPosition = targetUrl.getBoundingClientRect().top + window.scrollY;
-            let offsetPosition = elementPosition - headerOffset;
+/* =========================
+   2) Menu click handling
+   - Uses navigateTo() so the same logic works everywhere
+   ========================= */
 
-            // Check if the element position is beyond the maximum scrollable area of the document
-            const maxScrollable = document.documentElement.scrollHeight - window.innerHeight;
-            if (offsetPosition > maxScrollable) {
-                offsetPosition = maxScrollable; // Adjust to max scrollable if it's exceeded
+function setupMenuNavigation() {
+    document.querySelectorAll('nav a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetUrl = this.getAttribute('href');
+
+            if (targetUrl) {
+                navigateTo(targetUrl);
             }
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
-        }
-    });
-});
-
-
-// Ensure the nav bar fixes itself after scrolling past the header
-window.addEventListener('scroll', () => {
-    const nav = document.querySelector('nav');
-    const fromTop = window.scrollY;
-    
-    if (fromTop > document.querySelector('header').offsetHeight) {
-        nav.classList.add('fixed-nav');
-    } else {
-        nav.classList.remove('fixed-nav');
-    }
-});
-
-
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    const pdfButtons = document.querySelectorAll('.pdf-view');
-    
-    pdfButtons.forEach(function(button) {
-        button.addEventListener('click', function() {
-            const url = this.getAttribute('data-url');
-            window.open(url, '_blank');
         });
     });
-});
+}
 
 
-document.addEventListener('DOMContentLoaded', function() {
+/* =========================
+   3) Sticky nav behaviour
+   - Adds/removes .fixed-nav after passing the header
+   ========================= */
 
-    const images = document.querySelectorAll('main img'); 
+function setupStickyNav() {
+    window.addEventListener('scroll', () => {
+        const nav = document.querySelector('nav');
+        const header = document.querySelector('header');
+
+        if (!nav || !header) return;
+
+        const fromTop = window.scrollY;
+
+        if (fromTop > header.offsetHeight) {
+            nav.classList.add('fixed-nav');
+        } else {
+            nav.classList.remove('fixed-nav');
+        }
+    });
+}
+
+
+/* =========================
+   4) PDF buttons
+   - Opens PDFs in a new tab
+   ========================= */
+
+function setupPdfButtons() {
+    const pdfButtons = document.querySelectorAll('.pdf-view');
+
+    pdfButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const url = this.getAttribute('data-url');
+            if (url) {
+                window.open(url, '_blank');
+            }
+        });
+    });
+}
+
+
+/* =========================
+   5) Lightbox (all main images)
+   - Click image => open overlay + caption (alt text)
+   - Scrollable overlay, prevents background scroll
+   ========================= */
+
+function setupLightbox() {
+    const images = document.querySelectorAll('main img');
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     const caption = document.getElementById('lightbox-caption');
     const closeBtn = document.querySelector('.close-lightbox');
 
+    if (!lightbox || !lightboxImg || !caption || !closeBtn) return;
+
     images.forEach(img => {
+        img.style.cursor = "pointer";
 
-    img.style.cursor = "pointer";
+        img.addEventListener('click', function() {
+            lightbox.style.display = 'block';
+            lightboxImg.src = this.src;
+            caption.textContent = this.alt || "";
 
-    img.addEventListener('click', function() {
-        lightbox.style.display = 'block';
-        lightboxImg.src = this.src;
-        caption.textContent = this.alt || "";
-
-        document.body.style.overflow = "hidden";  // 🔥 Prevent background scroll
+            document.body.style.overflow = "hidden"; // prevent background scroll
+        });
     });
 
-});
-
-closeBtn.addEventListener('click', function() {
-    lightbox.style.display = 'none';
-    document.body.style.overflow = "auto";
-});
-
-lightbox.addEventListener('click', function(e) {
-    if (e.target === lightbox) {
+    closeBtn.addEventListener('click', function() {
         lightbox.style.display = 'none';
         document.body.style.overflow = "auto";
-    }
-});
+    });
 
+    lightbox.addEventListener('click', function(e) {
+        if (e.target === lightbox) {
+            lightbox.style.display = 'none';
+            document.body.style.overflow = "auto";
+        }
+    });
+}
+
+
+/* =========================
+   6) Initialise everything
+   ========================= */
+
+document.addEventListener('DOMContentLoaded', function() {
+    setupMenuNavigation();
+    setupStickyNav();
+    setupPdfButtons();
+    setupLightbox();
 });

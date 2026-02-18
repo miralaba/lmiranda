@@ -4,15 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leonardo de Sousa Miranda</title>
+
     <!-- Link to the external CSS file -->
     <link rel="stylesheet" href="style.css">
+
     <!-- Fonts from Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/e3e9aa47b1.js" crossorigin="anonymous"></script>
 </head>
-<body>
 
+<body>
     <!-- Header with background image and profile photo -->
     <header id="top">
         <h1 class="name">Leonardo de Sousa Miranda</h1>
@@ -36,7 +39,13 @@
         <!-- About Me Section -->
         <section id="about">
             <h2>About Me</h2>
-            <img src="./images/MirandaLphoto.jpg" alt="Leonardo de Sousa Miranda - Portrait of me standing in the garden of Casa das 11 Janelas in Belém, Brazil (2022), with the Guamá River in the background."  class="profile-photo clickable-image">
+            <!-- Wrap block: image floats left, text wraps, then continues below -->
+             <div class="wrap-block">
+                <img 
+                src="./images/MirandaLphoto.jpg" 
+                alt="Leonardo de Sousa Miranda - Portrait of me standing in the garden of Casa das 11 Janelas in Belém, Brazil (2022), with the Guamá River in the background."  
+                class="wrap-img float-left img-md clickable-image">
+
             <!-- Add your biography and other details here -->
             <p>I am an biodiversity data scientist who spends a lot of time thinking about tropical ecosystems: how they respond to global changes and how we can make better decisions about their future. Somewhere between field notebooks in the Amazon and lines of code in R, I realised that understanding biodiversity is not only about describing species, but about anticipating change. And acting on it.</p>
             
@@ -46,113 +55,93 @@
 
             <p>I enjoy working at the boundary between science and policy, and I care deeply about the integrity of both. Good data matters. Clear models matter. But so does listening to local knowledge, to students, to collaborators. In the end, I am motivated by one question: how can ecological science meaningfully inform decisions that shape landscapes and livelihoods?</p>
             
-            <p>For more details about my skills, publications, and engagement activities please access my <button onclick="navigateTo('https://www.linkedin.com/in/miralaba', true);">LinkedIn profile</button> and my <button onclick="navigateTo('https://www.lancaster.ac.uk/lec/about-us/people/leonardo-de-sousa-de-sousa-miranda', true);">Lancaster University page</button>.
-            </p>
+            <p>For more details about my skills, publications, and engagement activities please access my <button onclick="navigateTo('https://www.linkedin.com/in/miralaba', true);">LinkedIn profile</button> and my <button onclick="navigateTo('https://www.lancaster.ac.uk/lec/about-us/people/leonardo-de-sousa-de-sousa-miranda', true);">Lancaster University page</button>.</p>
+             </div>
             </section>
 
         <!-- Research Section -->
         <section id="research">
             <h2>Profile and Portfolio</h2>
             <!-- Details about your research -->
-            <p>
-                <img src="./images/research_image1.png" alt="Left: I am on a field expedition in the Guiana Shield (2009), carefully removing a bird from a mist net during a biodiversity inventory at ESEC Grão-Pará under the Calha Norte do Amazonas project. Right: I am holding a curl-crested aracari (Pteroglossus beauharnaisii) captured during a field trip to the Novo River (a tributary of the Jamaxim and Tapajós rivers) near Novo Progresso, southern Pará (2008), as part of an Amazonian bird inventory." class="research-image top-right clickable-image">
-                My research trajectory began during my undergraduate scientific initiation projects, where I worked on population genetics of Amazonian birds. I estimated nucleotide and haplotypic diversity, gene flow patterns, and [naively attempted to calculate] effective population sizes, using coalescent-based approaches to understand how landscape structure shapes genetic variation.
-            </p>
+             <div class="wrap-block">
+                <img 
+                src="./images/research_image1.png" 
+                alt="Left: I am on a field expedition in the Guiana Shield (2009), carefully removing a bird from a mist net during a biodiversity inventory at ESEC Grão-Pará under the Calha Norte do Amazonas project. Right: I am holding a curl-crested aracari (Pteroglossus beauharnaisii) captured during a field trip to the Novo River (a tributary of the Jamaxim and Tapajós rivers) near Novo Progresso, southern Pará (2008), as part of an Amazonian bird inventory."
+                class="wrap-img float-right img-lg clickable-image">
+                <p>My research trajectory began during my undergraduate scientific initiation projects, where I worked on population genetics of Amazonian birds. I estimated nucleotide and haplotypic diversity, gene flow patterns, and [naively attempted to calculate] effective population sizes, using coalescent-based approaches to understand how landscape structure shapes genetic variation.</p>
+             </div>
 
-            <p>
-                <img src="./images/research_image2.png" alt="Top-left: I am at the ornithological collection of the American Museum of Natural History in New York (2012), taking morphometric measurements of a fasciated antshrike (Cymbilaimus lineatus) specimen. Top-centre: A distribution map showing sampling locations of the Ihering’s antwren species complex used in my taxonomic research. Top-right: A molecular phylogeny of the Ihering’s antwren complex, highlighting three independent evolutionary lineages. Bottom-right: Spectrograms showing the distinct main song patterns of the three lineages. Bottom-left: The species plate from the Handbook of the Birds of the World featuring the Bamboo Antwren (Myrmotherula oreni), the species I described during my Master’s research." class="research-image top-left clickable-image">
-                During my Master’s degree, I moved into integrative taxonomy, combining molecular phylogenies, morphometric analyses, vocal trait assessment, and multivariate statistics to delimit species boundaries. This work led to the description of a new Amazonian bird species, Myrmotherula oreni (Bamboo Antwren), published in a special volume of the Handbook of the Birds of the World. This experience has strengthened my interest in how evolutionary history and ecological specialisation intersect.
-            </p>
+             <div class="wrap-block">
+                <img 
+                src="./images/research_image2.png" 
+                alt="Top-left: I am at the ornithological collection of the American Museum of Natural History in New York (2012), taking morphometric measurements of a fasciated antshrike (Cymbilaimus lineatus) specimen. Top-centre: A distribution map showing sampling locations of the Ihering’s antwren species complex used in my taxonomic research. Top-right: A molecular phylogeny of the Ihering’s antwren complex, highlighting three independent evolutionary lineages. Bottom-right: Spectrograms showing the distinct main song patterns of the three lineages. Bottom-left: The species plate from the Handbook of the Birds of the World featuring the Bamboo Antwren (Myrmotherula oreni), the species I described during my Master’s research." 
+                class="wrap-img float-left img-lg clickable-image">
+                <p>During my Master’s degree, I moved into integrative taxonomy, combining molecular phylogenies, morphometric analyses, vocal trait assessment, and multivariate statistics to delimit species boundaries. This work led to the description of a new Amazonian bird species, Myrmotherula oreni (Bamboo Antwren), published in a special volume of the Handbook of the Birds of the World. This experience has strengthened my interest in how evolutionary history and ecological specialisation intersect.</p>
+            </div>
 
-            <p>
-                <img src="./images/research_image3.png" alt="Left: I am writing my PhD thesis at Museu Paraense Emílio Goeldi (2014). Centre: A dated molecular phylogeny with ancestral area reconstructions, illustrating evolutionary relationships and historical biogeographic patterns. Right: Species distribution models hindcast to past climatic scenarios, contrasted with fluctuations in effective population sizes through time, showing how climate dynamics shaped Amazonian diversification." class="research-image top-right clickable-image">
-                My PhD expanded this perspective to macroevolution and biogeography. I reconstructed dated phylogenies using molecular clocks, conducted ancestral area reconstructions, and coupled species distribution models with palaeoclimatic hindcasts to examine how past climate oscillations influenced diversification across the Amazon. It was here that the central role of climate in shaping biodiversity patterns became undeniable.
-            </p>
+            <div class="wrap-block">
+                <img 
+                src="./images/research_image3.png" 
+                alt="Left: I am writing my PhD thesis at Museu Paraense Emílio Goeldi (2014). Centre: A dated molecular phylogeny with ancestral area reconstructions, illustrating evolutionary relationships and historical biogeographic patterns. Right: Species distribution models hindcast to past climatic scenarios, contrasted with fluctuations in effective population sizes through time, showing how climate dynamics shaped Amazonian diversification." 
+                class="wrap-img float-right img-lg clickable-image">
+                <p>My PhD expanded this perspective to macroevolution and biogeography. I reconstructed dated phylogenies using molecular clocks, conducted ancestral area reconstructions, and coupled species distribution models with palaeoclimatic hindcasts to examine how past climate oscillations influenced diversification across the Amazon. It was here that the central role of climate in shaping biodiversity patterns became undeniable.</p>
+            </div>
 
-            <p>
-                <img src="./images/research_image4.png" alt="Screenshots of three publications presenting my work on projected impacts of future climate change on bees and birds, and a spatial framework developed to prioritise conservation and restoration areas based on climate-driven vulnerability" class="research-image top-left clickable-image">
-                In my postdoctoral positions, I shifted towards forecasting future change. I used species distribution models to assess climate-driven range shifts in birds, bees, and other taxa, some of these works were later cited by the UN FAO. I also developed spatial multi-criteria frameworks to prioritise conservation and restoration areas, integrating ecological data with strategic planning tools.
-            </p>
+            <div class="wrap-block">
+                <img 
+                src="./images/research_image4.png" 
+                alt="Screenshots of three publications presenting my work on projected impacts of future climate change on bees and birds, and a spatial framework developed to prioritise conservation and restoration areas based on climate-driven vulnerability" 
+                class="wrap-img float-left img-lg clickable-image">
+                <p>In my postdoctoral positions, I shifted towards forecasting future change. I used species distribution models to assess climate-driven range shifts in birds, bees, and other taxa, some of these works were later cited by the UN FAO. I also developed spatial multi-criteria frameworks to prioritise conservation and restoration areas, integrating ecological data with strategic planning tools.</p>
+            </div>
 
-            <p>
-                <img src="./images/research_image5.png" alt="Top-left: I am being interviewed by the Ramboll Foundation team at Lancaster University Library (2023) after receiving the Ramboll Foundation Award on Biodiversity. Right: I am sitting on a monitoring tower installed in a 40+ year-old secondary forest in Capitão Poço, Pará, Brazil, where ecosystem processes and functions are being monitored as part of a restoration project funded by the Global Centre on Biodiversity for Climate (GCBC). Bottom-left: I am presenting a spatial restoration planning framework to stakeholders at Embrapa in Belém (2025), discussing multiple benefits, costs and risks of restoration strategies." class="research-image top-right clickable-image">
-                More recently, as part of the Rede Amazônia Sustentável, I have led spatially explicit modelling that integrates satellite data, long-term field observations and counterfactual scenarios to quantify the cost-effectiveness of conservation interventions. These works contributed to receiving the Ramboll Foundation Award on Biodiversity and to securing major restoration funding through the GCBC–DEFRA programme. I now collaborate closely with the Environment Secretariat of Pará to measure the recovery of biodiversity and ecosystem functions in naturally regenerating secondary forests, translating science into operational guidance for restoration at scale.
-            </p>
-            
+            <div class="wrap-block">
+                <img 
+                src="./images/research_image5.png" 
+                alt="Top-left: Giving an interview to the Ramboll Foundation team at Lancaster University Library (2023) after receiving the Ramboll Foundation Award on Biodiversity. Right: I am sitting on a monitoring tower installed in a 40+ year-old secondary forest in Capitão Poço, Pará, Brazil, where ecosystem processes and functions are being monitored as part of a restoration project funded by the Global Centre on Biodiversity for Climate (GCBC). Bottom-left: I am presenting a spatial restoration planning framework to stakeholders at Embrapa in Belém (2025), discussing multiple benefits, costs and risks of restoration strategies." 
+                class="wrap-img float-right img-lg clickable-image">
+                <p> More recently, as part of the Rede Amazônia Sustentável, I have led spatially explicit modelling that integrates satellite data, long-term field observations and counterfactual scenarios to quantify the cost-effectiveness of conservation interventions. These works contributed to receiving the Ramboll Foundation Award on Biodiversity and to securing major restoration funding through the GCBC–DEFRA programme. I now collaborate closely with the Environment Secretariat of Pará to measure the recovery of biodiversity and ecosystem functions in naturally regenerating secondary forests, translating science into operational guidance for restoration at scale.</p>
+            </div>
+
             <nav class="research">
                 <p><strong>Research interests</strong></p>
                 <ul>
-                    <li>
-                        1. Applied ecology
-                    </li>
-                    <li>
-                        2. Ecology and conservation
-                    </li>
-                    <li>
-                        3. Macroecolgy
-                    </li>
-                    <li>
-                        4. Spatial analysis
-                    </li>
-                </ul>
-                <p><strong>Previous employment and affiliations</strong></p>
-                <ul>
-                    <li>
-                        Jun 2022 - Current, Senior Research Associate, <b>Lancaster University</b>, UK.
-                    </li>
-                    <li>
-                        Nov 2021 - Apr 2022, Visitng Professor, <b>Universidade Federal de Roraima</b>, Brazil.
-                    </li>
-                    <li>
-                        May 2021 - Oct 2021, Data Analyst, <b>Palladium: Make It Possible</b>, Brazil.
-                    </li>
-                    <li>
-                        Mar 2020 - Apr 2021, Research Associate, <b>Museu Emilio Goeldi</b>, Brazil. 
-                    </li>
-                    <li>
-                        Jun 2016 - Feb 2020, Postdoctoral fellow, <b>Insituto Tecnológico Vale</b>, Brazil.
-                    </li>
-                </ul>
-                <p><strong>Volunteering</strong></p>
-                <ul>
-                    <li>
-                        Feb 2026 - Current, NERC Peer Review College, <b>Natural Environment Research Council</b>.
-                    </li>
-                    <li>
-                        Feb 2026 - Current, Macroecology Special Interest Group committee, <b>British Ecological Society</b>.
-                    </li>
-                    <li>
-                        May 2022 - Current, Associate Editor, <b>Boletim do Museu Paraense Emílio Goeldi. Ciências Naturais </b>.
-                    </li>
-                </ul>
-                <p><strong>Membership</strong></p>
-                <ul>
-                    <li>
-                        Jun 2025 - Current, Royal Society for the Protection of Birds (RSPB).
-                    </li>
-                    <li>
-                        Dec 2023 - Current, British Ecological Society (BES).
-                    </li>
-                    <li>
-                        Jun 2023 - Current, Association for Tropical Biology and Conservation (ATBC).
-                    </li>
-                    <li>
-                        May 2023 - Current, Alliance for Restoration in the Amazon.
-                    </li>
-                </ul>
-                <p><strong>Qualifications</strong></p>
-                <ul>
-                    <li>
-                        <b>PhD</b> 2015: Universidade Federal do Pará, thesis title: <i>Comparative phylogeography of birds with trans-Amazonian and trans-Andean distributions</i>.
-                    </li>
-                    <li>
-                        <b>Masters</b> 2011: Universidade Federal do Pará, dissertation title: <i>Molecular, morphological and vocal variation and species limits in the Inhering's antwren <u>Myrmotherula inheringi</u> (Thamnophilidae) with the description of a new species</i>.
-                    </li>
-                    <li>
-                        <b>Bsc</b> 2008: Biological Science, Universidade Federal do Pará.
-                    </li>
+                    <li>1. Applied ecology</li>
+                    <li>2. Ecology and conservation</li>
+                    <li>3. Macroecolgy</li>
+                    <li>4. Spatial analysis</li>
                 </ul>
 
+                <p><strong>Previous employment and affiliations</strong></p>
+                <ul>
+                    <li>Jun 2022 - Current, Senior Research Associate, <b>Lancaster University</b>, UK.</li>
+                    <li>Nov 2021 - Apr 2022, Visitng Professor, <b>Universidade Federal de Roraima</b>, Brazil.</li>
+                    <li>May 2021 - Oct 2021, Data Analyst, <b>Palladium: Make It Possible</b>, Brazil.</li>
+                    <li>Mar 2020 - Apr 2021, Research Associate, <b>Museu Emilio Goeldi</b>, Brazil.</li>
+                    <li>Jun 2016 - Feb 2020, Postdoctoral fellow, <b>Insituto Tecnológico Vale</b>, Brazil.</li>
+                </ul>
+
+                <p><strong>Volunteering</strong></p>
+                <ul>
+                    <li>Feb 2026 - Current, NERC Peer Review College, <b>Natural Environment Research Council</b>.</li>
+                    <li>Feb 2026 - Current, Macroecology Special Interest Group committee, <b>British Ecological Society</b>.</li>
+                    <li>May 2022 - Current, Associate Editor, <b>Boletim do Museu Paraense Emílio Goeldi. Ciências Naturais </b>.</li>
+                </ul>
+
+                <p><strong>Membership</strong></p>
+                <ul>
+                    <li>Jun 2025 - Current, Royal Society for the Protection of Birds (RSPB).</li>
+                    <li>Dec 2023 - Current, British Ecological Society (BES).</li>
+                    <li>Jun 2023 - Current, Association for Tropical Biology and Conservation (ATBC).</li>
+                    <li>May 2023 - Current, Alliance for Restoration in the Amazon.</li>
+                </ul>
+
+                <p><strong>Qualifications</strong></p>
+                <ul>
+                    <li><b>PhD</b> 2015: Universidade Federal do Pará, thesis title: <i>Comparative phylogeography of birds with trans-Amazonian and trans-Andean distributions</i>.</li>
+                    <li><b>Masters</b> 2011: Universidade Federal do Pará, dissertation title: <i>Molecular, morphological and vocal variation and species limits in the Inhering's antwren <u>Myrmotherula inheringi</u> (Thamnophilidae) with the description of a new species</i>.</li>
+                    <li><b>Bsc</b> 2008: Biological Science, Universidade Federal do Pará.</li>
+                </ul>
                 
             </nav> 
         </section>
@@ -160,6 +149,7 @@
         <!-- Publications Section -->
         <section id="publications">
             <h2>Publications</h2>
+
             <!-- List your publications here -->
             <nav class="publications">
                 <ul>
@@ -198,6 +188,7 @@
         <section id="contact">
             <h2>Contact</h2>
             <p>If you have any questions or would like to discuss collaborative opportunities, please feel free to reach out.</p>
+
             <div class="contact-methods">
                 <a href="mailto:miralaba@gmail.com" class="contact-link" target="_blank">
                     <i class="fas fa-envelope"></i> miralaba@gmail.com
