@@ -122,7 +122,7 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center; /* Center the content */
-    text-align: justify; /* Justify the text */
+    text-align: left; /* Justify the text */
     padding: 0 20px; /* Add padding to give some space on the sides */
     padding-top: 70px; /* Adjust based on your fixed header height */
     margin-top: -70px; /* Negative margin to offset the padding for anchor link positioning */
@@ -145,7 +145,7 @@ section {
 
    /* Container that keeps readable width and clears floats */
 .wrap-block {
-    max-width: 1100px;
+    max-width: 1700px;
     margin: 0 auto;
 }
 
@@ -177,7 +177,7 @@ section {
 /* Size presets */
 .img-sm { width: 160px; }
 .img-md { width: 220px; }
-.img-lg { width: 700px; } /* matches your old research-image max-width */
+.img-lg { width: 500px; } /* matches your old research-image max-width */
 
 /* =========================
    8) Backward compatibility
@@ -208,7 +208,7 @@ section {
 /* Old research image system (still works, but new layout uses wrap-img + floats) */
 /* General styles for research images */
 .research-image {
-    max-width: 700px; /* Adjust the size of the image */
+    max-width: 500px; /* Adjust the size of the image */
     height: auto; /* Maintain aspect ratio */
     margin: 10px; /* Add spacing around the image */
     /* border-radius: 10px; /* Optional: rounded corners */
